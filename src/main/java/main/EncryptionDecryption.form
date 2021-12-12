@@ -29,8 +29,11 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="textButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="textButton" alignment="2" min="-2" pref="72" max="-2" attributes="0"/>
                   <Component id="projectName" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="imageButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="fileButton" alignment="2" min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="jSeparator1" alignment="2" min="-2" pref="126" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="141" max="32767" attributes="0"/>
           </Group>
@@ -41,9 +44,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="projectName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="textButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="209" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="imageButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="fileButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,6 +67,27 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Text"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="imageButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Image"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="fileButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="File"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fileButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
   </SubComponents>
 </Form>

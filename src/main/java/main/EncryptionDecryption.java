@@ -23,6 +23,9 @@ public class EncryptionDecryption extends javax.swing.JFrame {
 
         projectName = new javax.swing.JLabel();
         textButton = new javax.swing.JButton();
+        imageButton = new javax.swing.JButton();
+        fileButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -30,6 +33,25 @@ public class EncryptionDecryption extends javax.swing.JFrame {
         projectName.setText("3ncrypt10n-d3crypt10n");
 
         textButton.setText("Text");
+        textButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textButtonActionPerformed(evt);
+            }
+        });
+
+        imageButton.setText("Image");
+        imageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imageButtonActionPerformed(evt);
+            }
+        });
+
+        fileButton.setText("File");
+        fileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,8 +60,11 @@ public class EncryptionDecryption extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(textButton)
-                    .addComponent(projectName))
+                    .addComponent(textButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectName)
+                    .addComponent(imageButton)
+                    .addComponent(fileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -47,13 +72,40 @@ public class EncryptionDecryption extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(projectName)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addComponent(textButton)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(imageButton)
+                .addGap(18, 18, 18)
+                .addComponent(fileButton)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textButtonActionPerformed
+        // TODO add your handling code here:
+        TextEncryptionDecryption ted = new TextEncryptionDecryption();
+        ted.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_textButtonActionPerformed
+
+    private void imageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageButtonActionPerformed
+        // TODO add your handling code here:
+        ImageEncryptionDecryption ied = new ImageEncryptionDecryption();
+        ied.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_imageButtonActionPerformed
+
+    private void fileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileButtonActionPerformed
+        // TODO add your handling code here:
+        FileEncryptionDecryption fed = new FileEncryptionDecryption();
+        fed.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_fileButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +143,9 @@ public class EncryptionDecryption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton fileButton;
+    private javax.swing.JButton imageButton;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel projectName;
     private javax.swing.JButton textButton;
     // End of variables declaration//GEN-END:variables

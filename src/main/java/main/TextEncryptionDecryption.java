@@ -35,6 +35,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         keyShiftValue = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        goBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +72,13 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
 
         jLabel4.setText("Key/Shift value:");
 
+        goBackButton.setText("Go Back");
+        goBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,14 +109,18 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
                     .addComponent(textEncryptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textDecryptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                     .addComponent(textResetButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cryptoDropDown, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(keyShiftValue, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cryptoDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(goBackButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +153,9 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
                         .addComponent(textDecryptButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textResetButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(goBackButton)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -291,6 +305,13 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         cryptoTypeDecrypt();
     }//GEN-LAST:event_textDecryptButtonActionPerformed
 
+    private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
+        // TODO add your handling code here:
+        EncryptionDecryption ed = new EncryptionDecryption();
+        ed.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_goBackButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -328,6 +349,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cryptoDropDown;
+    private javax.swing.JButton goBackButton;
     private javax.swing.JTextField inputTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
