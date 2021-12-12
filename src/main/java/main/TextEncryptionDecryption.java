@@ -1,5 +1,6 @@
 package main;
 import java.util.Base64;
+import javax.swing.JOptionPane;
 
 /**
  * @author zah1dz
@@ -38,15 +39,25 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         goBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Text Encrypt/Decrypt");
 
+        rot13EncrpytionDecryption.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         rot13EncrpytionDecryption.setText("Text Encryption/Decryption");
 
-        cryptoDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ROT13", "Base64", "Ceaser", "PlayFair" }));
+        cryptoDropDown.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        cryptoDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ROT13", "Base64", "Ceaser" }));
 
+        inputTextField.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
+        outputTextField.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Input Text Field:");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Output Text Field:");
 
+        textEncryptButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         textEncryptButton.setText("Encrypt");
         textEncryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +65,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        textDecryptButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         textDecryptButton.setText("Decrypt");
         textDecryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +73,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        textResetButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         textResetButton.setText("Reset");
         textResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,10 +81,12 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Select type:");
 
         jLabel4.setText("Key/Shift value:");
 
+        goBackButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         goBackButton.setText("Go Back");
         goBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,39 +101,33 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rot13EncrpytionDecryption)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)))
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(outputTextField)
-                            .addComponent(inputTextField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textEncryptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textDecryptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addComponent(textResetButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(keyShiftValue, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(outputTextField))
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(cryptoDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textResetButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textDecryptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                .addComponent(keyShiftValue, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cryptoDropDown, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textEncryptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rot13EncrpytionDecryption))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(230, 230, 230)
                 .addComponent(goBackButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -128,8 +137,8 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(rot13EncrpytionDecryption)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
@@ -153,9 +162,9 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
                         .addComponent(textDecryptButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textResetButton)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(goBackButton)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -164,6 +173,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
     String text;
     String cryptoType;
     String key;
+    //int k;
     
     public void cryptoTypeEncrypt() {
         switch(cryptoType)
@@ -172,9 +182,16 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
                 
             case "Base64":  base64Encrypt(); break;
             
-            case "Ceaser":  ceaserEncryption(); break;
-                
-            case "PlayFair":  break;   
+            case "Ceaser":  {
+                                if(key.isEmpty()) {
+                                    JOptionPane.showMessageDialog(null, "Please, provide a key/shift value"); break;
+                                }
+                                else {
+                                    //k = Integer.parseInt(key);
+                                    ceaserEncryption();
+                                    break;
+                                }
+            }
         }
     }
     public void cryptoTypeDecrypt() {
@@ -184,15 +201,23 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
             
             case "Base64":  base64Decrypt(); break;
             
-            case "Ceaser":  ceaserDecryption(); break;
+            case "Ceaser":  {
+                                if(key.isEmpty()) {
+                                    JOptionPane.showMessageDialog(null, "Please, provide a key/shift value"); break;
+                                }
+                                else {
+                                    //k = Integer.parseInt(key);
+                                    ceaserDecryption();
+                                    break;
+                                }
+            }
             
-            case "PlayFair": break;
         }
     }
     public void ceaserEncryption() {
         String e = "";
         int k = Integer.parseInt(key);
-        outputTextField.setText(k+"");
+        //outputTextField.setText(k+"");
         k %= 26;
         char c;
         
@@ -222,11 +247,14 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         
         outputTextField.setText(e);
         
+        key = null;
+        k = 0;
+        
     }
     public void ceaserDecryption() {
         String e = "";
         int k = Integer.parseInt(key);
-        outputTextField.setText(k + "");
+        //outputTextField.setText(k + "");
         k %= 26;
         char c;
 
@@ -255,6 +283,9 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         }
 
         outputTextField.setText(e);
+        // 
+        key = null;
+        k = 0;
     }
     public void base64Encrypt() {
         Base64.Encoder enc = Base64.getEncoder();
@@ -301,6 +332,7 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
     private void textDecryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDecryptButtonActionPerformed
         // TODO add your handling code here:
         text = inputTextField.getText();
+        key = keyShiftValue.getText();
         cryptoType = cryptoDropDown.getSelectedItem().toString();
         cryptoTypeDecrypt();
     }//GEN-LAST:event_textDecryptButtonActionPerformed

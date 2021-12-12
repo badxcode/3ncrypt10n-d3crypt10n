@@ -3,6 +3,14 @@ package main;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
@@ -30,9 +38,12 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
         goBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Image Encrypt/Decrypt");
 
+        headingLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         headingLabel.setText("Image Encryption/Decryption");
 
+        openImageButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         openImageButton.setText("Open Image");
         openImageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,8 +57,10 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        keyLabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         keyLabel.setText("Key:");
 
+        encryptButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         encryptButton.setText("Encrypt");
         encryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +68,7 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        decryptButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         decryptButton.setText("Decrypt");
         decryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +76,7 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        resetButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +84,7 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        goBackButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         goBackButton.setText("Go Back");
         goBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,12 +96,6 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(Separator)
-                    .addComponent(headingLabel))
-                .addGap(60, 60, 60))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -101,24 +111,31 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
                                     .addComponent(decryptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(encryptButton)
                                     .addComponent(resetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(imageNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(imageNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(headingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Separator)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
                         .addComponent(goBackButton)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(headingLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Separator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(openImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imageNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(encryptButton)
@@ -130,9 +147,9 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
                         .addComponent(keyLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(keyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(goBackButton)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -176,14 +193,45 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
         }
         
     }
-    
+    public void imageEncryptDecrypt() throws NoSuchAlgorithmException, NoSuchPaddingException {
+        try {
+            Cipher cipher = Cipher.getInstance("DES");
+            KeyGenerator keyg = KeyGenerator.getInstance("DES");
+            Key k = keyg.generateKey();
+            
+            cipher.init(Cipher.ENCRYPT_MODE, k);
+            
+            FileInputStream FISE = new FileInputStream(selectedImage);
+            CipherInputStream ciptI = new CipherInputStream(FISE, cipher);
+            FileOutputStream fileE = new FileOutputStream(selectedImage.getParent()+"/encrypted_"+fileName);
+            
+            int i;
+            while((i = ciptI.read()) != -1) {
+                fileE.write(i);
+            }
+            
+            cipher.init(Cipher.DECRYPT_MODE, k);
+            FileInputStream FISD = new FileInputStream(selectedImage);
+            CipherInputStream ciptD = new CipherInputStream(FISD, cipher);
+            FileOutputStream fileD = new FileOutputStream(selectedImage.getParent()+"/decrypted_"+fileName);
+            
+            int j;
+            while((j = ciptD.read()) != -1) {
+                fileD.write(j);
+            }
+
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void openImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openImageButtonActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         selectedImage = chooser.getSelectedFile();
         
-        fileName = selectedImage.getAbsolutePath();
+        fileName = selectedImage.getName();
         imageNameTextField.setText(fileName);
         
     }//GEN-LAST:event_openImageButtonActionPerformed
@@ -205,6 +253,14 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
         if(!keyTextField.getText().isEmpty() && selectedImage != null) {
             key = Integer.parseInt(keyTextField.getText());
             imageEncryptionDecryption();
+            
+//            try {
+//                imageEncryptDecrypt();
+//            } catch (NoSuchAlgorithmException ex) {
+//                Logger.getLogger(ImageEncryptionDecryption.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (NoSuchPaddingException ex) {
+//                Logger.getLogger(ImageEncryptionDecryption.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
         
     }//GEN-LAST:event_encryptButtonActionPerformed
@@ -219,7 +275,15 @@ public class ImageEncryptionDecryption extends javax.swing.JFrame {
         }
         if(!keyTextField.getText().isEmpty() && selectedImage != null) {
             key = Integer.parseInt(keyTextField.getText());
-            imageEncryptionDecryption();
+             imageEncryptionDecryption();
+             
+//            try {
+//                imageEncryptDecrypt();
+//            } catch (NoSuchAlgorithmException ex) {
+//                Logger.getLogger(ImageEncryptionDecryption.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (NoSuchPaddingException ex) {
+//                Logger.getLogger(ImageEncryptionDecryption.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
     }//GEN-LAST:event_decryptButtonActionPerformed
 
