@@ -46,6 +46,10 @@ public class FileEncryptionDecryption extends javax.swing.JFrame {
             }
         });
 
+        fileNameTextField.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
+        KeyTextField.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
         keyLabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         keyLabel.setText("Key:");
 
@@ -121,11 +125,11 @@ public class FileEncryptionDecryption extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(openFileButton)
-                    .addComponent(fileNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(fileNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(keyLabel)
                     .addComponent(encryptButton))
@@ -140,7 +144,7 @@ public class FileEncryptionDecryption extends javax.swing.JFrame {
                         .addComponent(KeyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addComponent(goBackButton)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,7 +186,7 @@ public class FileEncryptionDecryption extends javax.swing.JFrame {
         chooser.showOpenDialog(null);
         selectedFile = chooser.getSelectedFile();
         
-        FileName = selectedFile.getAbsolutePath();
+        FileName = selectedFile.getName();
         fileNameTextField.setText(FileName);
     }//GEN-LAST:event_openFileButtonActionPerformed
 

@@ -84,6 +84,8 @@ public class TextEncryptionDecryption extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Select type:");
 
+        keyShiftValue.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
         jLabel4.setText("Key/Shift value:");
 
         goBackButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
