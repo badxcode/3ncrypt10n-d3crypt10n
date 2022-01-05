@@ -54,11 +54,11 @@ This project provides the below functionalities:
 
 ### Decrypted Image
 
-![real-image](Demo%20Pictures/image.png)
+![real-image](Demo%20Pictures/image.jpg)
 
 ### File Encryption
 
-![file-encryption](Demo%20Pictures/file_encrypt_decrypt.png)
+![file-encryption](Demo%20Pictures/file_encrypt-decrypt.png)
 
 ### Encrypted File Can't be Opened
 
@@ -66,13 +66,13 @@ This project provides the below functionalities:
 
 ### File Decryption
 
-![file-decryption](Demo%20Pictures/file_encrypt_decrypt.png)
+![file-decryption](Demo%20Pictures/file_encrypt-decrypt.png)
 
 ### Decrypted File
 
 ![decrypted-file](Demo%20Pictures/decrypted_pdf_file.png)
 
+---
 
 University project of semester L2T1. Really enjoyed making it. ♥️
-
 
